@@ -1,17 +1,23 @@
+# Function goes here
+def yes_no(question):
+    valid = False
+    while not valid:
+        # Ask user if they have played before
+        response = input(question).lower().strip()
 
-show_instructions = ""
+        # If  yes, output 'program continues'
+        if response == "yes" or response == "y":
+            response = "yes"
+            return response
 
-while show_instructions.lower() != "xxx":
-    # Ask user if they have played before
-    show_instructions = input("Have you played Lucky Unicorn before?") .lower()
+        # If no output 'display instructions'
+        elif response == "no" or response == "n":
+            response= "no"
+            return response
 
-    # If  yes, output 'program continues'
-    if show_instructions.lower() == "yes" or show_instructions == "y":
-        print("Program Continues")
+        else:
+            print("Please enter yes or no")
 
-    # If no output 'display instructions'
-    elif show_instructions.lower() == "no" or show_instructions == "n":
-        print("Display Instructions")
-
-    else:
-        print("Please enter yes or no")
+# Main routine goes here ...
+show_instructions = yes_no("Have you played the game before? ")
+print( "You chose {}".format(show_instructions))
