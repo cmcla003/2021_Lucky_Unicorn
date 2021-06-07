@@ -1,11 +1,7 @@
+import random
 
-# get name until answer is entered
-name = ""
+for item in range(1,20):
+    number = random.randint(0,4)
+    print(number, end="\t")
 
-while name.lower() != "xxx":
-     name = input("Who are you?")
-     print(name)
-
-print()
-print("We are done")
 
