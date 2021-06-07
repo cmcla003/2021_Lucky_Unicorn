@@ -24,5 +24,7 @@ for item in range (0, 100):
             chosen = "zebra"
         balance -= 0.5
 
+    print("you got a {}. Your balance is {:.2f}".format(chosen,balance))
+
 print("Start Balance: ${:.2f} \n Final Balance: ${:.2f} ".format(STARTING_BALANCE, balance))
 
