@@ -2,9 +2,10 @@ import random
 
 # main routine
 
+# initalise variables
 STARTING_BALANCE = 100
-
 balance = STARTING_BALANCE
+rounds_played = 0
 
 # testing loop to generate 100 tokens
 for item in range (0, 100):

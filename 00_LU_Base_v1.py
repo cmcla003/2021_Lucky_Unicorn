@@ -81,10 +81,18 @@ if played_before == "no":
 how_much = num_check("How much do you want to play with? ", 0, 10)
 print("You will be spending ${}".format(how_much))
 
+# initalise variables
+
 STARTING_BALANCE = how_much
 balance = STARTING_BALANCE
+rounds_played = 0
 
-for item in range (0, 100):
+
+play_again = input("Press <enter> to play....").lower()
+while play_again == "":
+    rounds_played +=1
+    print(" --- Round number {} ---".format(rounds_played))
+
 # generates random number that is wthen assigned to tokens
     chosen_num = random.randint(1,100)
 
@@ -114,4 +122,12 @@ for item in range (0, 100):
 
     statement_gen(outcome, prize_decoration)
     print ()
+
+    if balance < 1:
+        play_again = "xxx"
+        print("Sorry you have run out of money")
+
+    else:
+        play_again = input("Press <enter> to play again or xxx to quit")
+print("Your final balance is ${:.2f}".format(balance))
 
