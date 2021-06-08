@@ -23,6 +23,7 @@ def yes_no(question):
 
 
 def instructions():
+    # prints instructions to display to user
     statement_gen("How to play", "*")
     print()
     print("""Choose a starting amount, between $1 and $10.
@@ -37,7 +38,10 @@ Donkey: Nothing""" )
     print()
     return""
 
+
 def num_check(question,low,high):
+    # checks for integer within defines range
+    # error message displayed if outside of this
     error = "Please enter a whole number between 1 and 10\n"
 
     valid = False
@@ -57,21 +61,27 @@ def num_check(question,low,high):
 
 
 def statement_gen(statement, decoration):
-
+    #sets up decoration to match length of statement
+    # allow you to select different decorations
     sides = decoration * 3
     statement = "{} {} {}".format(sides, statement, sides)
     top_bottom = decoration * len(statement)
 
+    # format of decoration printing
     print(top_bottom)
     print(statement)
     print(top_bottom)
 
     return""
-# Main routine goes here ...
 
+
+# Main routine goes here ...
+# Welcome message
 statement_gen("Welcome to the Lucky Unicorn Game", "*")
 
+# asks user is played before
 played_before = yes_no("Have you played the game before? ")
+# displays instructions if not played before
 if played_before == "no":
     instructions()
     print()
@@ -79,18 +89,19 @@ if played_before == "no":
 
 #Ask user how much they want to play with
 how_much = num_check("How much do you want to play with? ", 0, 10)
+#displays to user how much they have chosen to play with
 print("You will be spending ${}".format(how_much))
 
 # initalise variables
-
-STARTING_BALANCE = how_much
-balance = STARTING_BALANCE
+balance = how_much
 rounds_played = 0
 
-
+# set up play loop to engage game and play multiple rounds
 play_again = input("Press <enter> to play....").lower()
 while play_again == "":
+    # add to rounds played to count amount rounds played
     rounds_played +=1
+   # displays rounds to user
     round_statement = "Round number {}".format(rounds_played)
     statement_gen(round_statement, "-")
 
@@ -119,18 +130,20 @@ while play_again == "":
             prize_decoration ="Z"
         balance -= 0.5
 
+    # displays token and winnings
     outcome = "You got a {}.  Your balance is ${:.2f}".format (chosen,balance)
-
     statement_gen(outcome, prize_decoration)
     print ()
 
+    # If out of money game will end
     if balance < 1:
         play_again = "xxx"
         print("Sorry you have run out of money")
 
+    # option to play again or exit game after round
     else:
         play_again = input("Press <enter> to play again or xxx to quit")
 
-        exit ="Your final balance is ${:.2f}".format(balance)
-        statement_gen(exit, "-")
+exit ="Your final balance is ${:.2f}".format(balance)
+statement_gen(exit, "-")
 
