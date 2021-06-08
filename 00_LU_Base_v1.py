@@ -91,7 +91,8 @@ rounds_played = 0
 play_again = input("Press <enter> to play....").lower()
 while play_again == "":
     rounds_played +=1
-    print(" --- Round number {} ---".format(rounds_played))
+    round_statement = "Round number {}".format(rounds_played)
+    statement_gen(round_statement, "-")
 
 # generates random number that is wthen assigned to tokens
     chosen_num = random.randint(1,100)
@@ -129,5 +130,7 @@ while play_again == "":
 
     else:
         play_again = input("Press <enter> to play again or xxx to quit")
-print("Your final balance is ${:.2f}".format(balance))
+
+        exit ="Your final balance is ${:.2f}".format(balance)
+        statement_gen(exit, "-")
 
