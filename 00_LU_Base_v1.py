@@ -1,7 +1,7 @@
 # Lucky Unicorn Base code
 import random
 
-# Function goes here
+# ****** Function goes here ******
 def yes_no(question):
     valid = False
     while not valid:
@@ -75,7 +75,7 @@ def statement_gen(statement, decoration):
     return""
 
 
-# Main routine goes here ...
+#  ****** Main routine goes here *******
 # Welcome message
 statement_gen("Welcome to the Lucky Unicorn Game", "*")
 
