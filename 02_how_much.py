@@ -4,7 +4,7 @@ error = "Please enter a number between 1 and 10\n"
 
 valid = False
 while not valid:
-    try:
+    try: 
         #ask the question
         response = int(input("How much do you want to play with? "))
 
